@@ -14,6 +14,6 @@ public class BaiduStep {
 
 	@When("open the target link")
 	public void openTheTargetLink(){
-		
+		openUrl("baidu.com");
 	}
 }
