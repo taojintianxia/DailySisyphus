@@ -3,64 +3,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>DailySisyphus</groupId>
 	<artifactId>DailySisyphus</artifactId>
-	<version>0.1.1-SNAPSHOT</version>
-
-	<properties>
-		<jbehave.core.version>3.8</jbehave.core.version>
-		<jbehave.web.version>3.5.5</jbehave.web.version>
-		<selenium.version>2.40.0</selenium.version>
-		<spring.version>3.1.1.RELEASE</spring.version>
-	</properties>
+	<version>0.0.1-SNAPSHOT</version>
 
 	<dependencies>
 		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>16.0.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
 			<groupId>org.jbehave.web</groupId>
 			<artifactId>jbehave-web-selenium</artifactId>
-			<version>${jbehave.web.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.jbehave</groupId>
-			<artifactId>jbehave-core</artifactId>
-			<version>${jbehave.core.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.jbehave</groupId>
-			<artifactId>jbehave-core</artifactId>
-			<version>${jbehave.core.version}</version>
-			<classifier>resources</classifier>
-			<type>zip</type>
-		</dependency>
-		<dependency>
-			<groupId>org.jbehave.site</groupId>
-			<artifactId>jbehave-site-resources</artifactId>
-			<version>3.1.1</version>
-			<type>zip</type>
-		</dependency>
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>${selenium.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>xerces</groupId>
-					<artifactId>xercesImpl</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-server</artifactId>
-			<version>${selenium.version}</version>
+			<version>3.5.5</version>
 		</dependency>
 	</dependencies>
 
