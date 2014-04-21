@@ -7,8 +7,8 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- *
- *
+ * 
+ * 
  * @author Kane.Sun
  * @version Apr 21, 2014 10:42:52 AM
  * 
@@ -37,13 +37,6 @@ public class SeleniumUtil {
 
 	public static String getBrowser() {
 		return loadProperties().get("Browser").toString();
-	}
-
-	private static String getPropertiesFileValue(String key) throws IOException {
-		InputStream in = new BufferedInputStream(new FileInputStream(configFile));
-		Properties properties = new Properties();
-		properties.load(in);
-		return properties.getProperty(key);
 	}
 
 }

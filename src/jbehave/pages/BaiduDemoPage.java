@@ -15,7 +15,7 @@ import org.openqa.selenium.WebElement;
  * 
  */
 
-public class BaiduPage extends BasePage {
+public class BaiduDemoPage extends BasePage {
 
 	private WebElement searchField;
 	private WebElement searchButton;

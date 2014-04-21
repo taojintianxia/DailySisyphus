@@ -71,8 +71,8 @@ public abstract class BasePage {
 	}
 
 	/**
-	 * @param give
-	 *            the locator in format of "id=","css=","name=","xpath=",etc... or give the id/xpath directly
+	 * @param give the locator in format of "id=","css=","name=","xpath=",etc...
+	 *            or give the id/xpath directly
 	 * @return boolean
 	 */
 	protected boolean isElementPresentBySelenium(String locator) {
@@ -98,8 +98,8 @@ public abstract class BasePage {
 	}
 
 	/**
-	 * @param By
-	 *            class
+	 * @param By class
+	 * 
 	 * @return
 	 */
 	protected void typeTextBoxBy(By byElement, String typeContent) {
@@ -119,8 +119,7 @@ public abstract class BasePage {
 	}
 
 	/**
-	 * @param By
-	 *            class
+	 * @param By class
 	 * @return
 	 */
 	protected void clickBy(By byElement) {

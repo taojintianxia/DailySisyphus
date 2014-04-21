@@ -2,7 +2,7 @@ package jbehave.steps;
 
 import static org.junit.Assert.assertTrue;
 import jbehave.base.BaseStep;
-import jbehave.pages.BaiduPage;
+import jbehave.pages.BaiduDemoPage;
 
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
@@ -19,13 +19,13 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Scope("prototype")
-public class TestSteps extends BaseStep {
+public class BaiduDemoSteps extends BaseStep {
 
-	private BaiduPage baiduPage;
+	private BaiduDemoPage baiduPage;
 
 	@Given("I access Baidu site")
 	public void iAccessBaiduSite() {
-		baiduPage = new BaiduPage();
+		baiduPage = new BaiduDemoPage();
 		baiduPage.openHomePage();
 	}
 

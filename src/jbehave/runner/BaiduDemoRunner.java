@@ -10,9 +10,9 @@ import jbehave.base.BaseRunner;
 import org.jbehave.core.embedder.executors.FixedThreadExecutors;
 import org.jbehave.core.io.StoryFinder;
 
-public class TestRunner extends BaseRunner {
+public class BaiduDemoRunner extends BaseRunner {
 
-	public TestRunner() {
+	public BaiduDemoRunner() {
 		configuredEmbedder().useExecutorService(new FixedThreadExecutors().create(configuredEmbedder().embedderControls().doGenerateViewAfterStories(true).doIgnoreFailureInStories(false).doIgnoreFailureInView(false).doVerboseFailures(true).doVerboseFiltering(true).useStoryTimeoutInSecs(600)));
 	}
 
