@@ -3,11 +3,6 @@
  */
 package jbehave.base.model;
 
-/**
- * 
- * @author hao-chen2
- * @version Feb 8, 2012
- */
 public class TestConstants {
 
 	public static final String OD_CONFIG_BRAND = "/od/config/brand";

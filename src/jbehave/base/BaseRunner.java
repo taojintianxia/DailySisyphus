@@ -1,5 +1,6 @@
 package jbehave.base;
 
+import static jbehave.util.SeleniumUtil.configFile;
 import static org.jbehave.core.reporters.Format.CONSOLE;
 
 import java.text.SimpleDateFormat;
@@ -7,13 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import jbehave.base.annotation.Brand;
 import jbehave.base.annotation.Browsers;
-import jbehave.base.annotation.Env;
-import jbehave.base.annotation.Locale;
 import jbehave.base.ftl.FreemarkerODViewGenerator;
 import jbehave.base.model.LifeCycleSteps;
-import jbehave.base.model.TestConstants;
 
 import org.apache.commons.lang3.StringUtils;
 import org.jbehave.core.Embeddable;
@@ -41,6 +38,8 @@ public abstract class BaseRunner extends JUnitStories {
 
 	protected abstract String[] getStepsBasePackages();
 
+	private Configuration config = null;
+
 	@Override
 	public InjectableStepsFactory stepsFactory() {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
@@ -60,84 +59,43 @@ public abstract class BaseRunner extends JUnitStories {
 
 	@Override
 	public void run() throws Throwable {
-		Brand brand = this.getClass().getAnnotation(Brand.class);
-		Locale locale = this.getClass().getAnnotation(Locale.class);
 		Browsers browser = this.getClass().getAnnotation(Browsers.class);
-		Env env = this.getClass().getAnnotation(Env.class);
+		SeleniumConfig.init(configFile);
 
-		String currentBrand = System.getProperty(TestConstants.BRAND);
-		String currentLocale = System.getProperty("meta.locale.country");
-		String currentEnv = System.getProperty("env");
-		if (!isRunnerSkipped(brand, locale, currentBrand, currentLocale)) {
-			// load values form properties
-			StringBuilder bundleName = new StringBuilder(100);
-			bundleName.append("selenium-").append(brand.value().name().toLowerCase()).append("-").append(locale.language()).append("_").append(locale.country());
-			if (StringUtils.isNotBlank(currentEnv)) {
-				bundleName.append("-").append(currentEnv);
-			} else if (env != null) {
-				bundleName.append("-").append(env.env().toLowerCase());
-			}
-			SeleniumConfig.init(bundleName.toString());
-			if (browser != null) {
-				WebDriverProvider.getInstance().setTestBrowser(browser.value()[0]);
-			} else {
-				WebDriverProvider.getInstance().setTestBrowser(null);
-			}
-			List<String> meta = new ArrayList<String>();
-			String currentMeta = System.getProperty("meta");
-			if (StringUtils.isNotBlank(currentMeta)) {
-				meta.add("+basic");
-				for (String s : currentMeta.split(",")) {
-					meta.add("+" + s);
-				}
-			}
-			meta.add("-skip");
-			meta.add("-manual");
-			meta.add("-wip");
-			Embedder embedder = configuredEmbedder();
-			embedder.useMetaFilters(meta);
-			// embedder.embedderControls().useStoryTimeoutInSecs(600)
-			// .useThreads(10)
-			// .doIgnoreFailureInStories(true)
-			// .doIgnoreFailureInView(true)
-			// .doVerboseFailures(true)
-			// .doVerboseFiltering(true);
-			EnhancePrintStreamEmbedderMonitor odMonitor = new EnhancePrintStreamEmbedderMonitor();
-			embedder.useEmbedderMonitor(odMonitor);
-			try {
-				embedder.runStoriesAsPaths(storyPaths());
-				if (odMonitor.getFailedPaths().size() > 0) {
-					System.out.println("***************************************Begin to re-run the failed stories****************************************");
-					StringBuffer sb = new StringBuffer();
-					for (String s : odMonitor.getFailedPaths()) {
-						sb = sb.append(s).append(", ");
-					}
-					System.out.print(sb.toString());
-					embedder.runStoriesAsPaths(odMonitor.getFailedPaths());
-				}
-			} finally {
-				embedder.generateCrossReference();
-			}
-		}
-	}
-
-	private boolean isRunnerSkipped(Brand brand, Locale locale, String currentBrand, String currentLocale) {
-		if (null == brand || null == locale || null == brand.value() || null == locale.country() || null == locale.language()) {
-			throw new IllegalArgumentException("@Brand or @Locale are not well configured in Runner");
-		}
-
-		if (StringUtils.isBlank(currentLocale) && StringUtils.isBlank(currentBrand)) {
-			return false;
-		}
-
-		if (currentLocale.equalsIgnoreCase(locale.language() + "_" + locale.country()) && currentBrand.equalsIgnoreCase(brand.value().name())) {
-			return false;
+		if (browser != null) {
+			WebDriverProvider.getInstance().setTestBrowser(browser.value()[0]);
 		} else {
-			return true;
+			WebDriverProvider.getInstance().setTestBrowser(null);
+		}
+		List<String> meta = new ArrayList<String>();
+		String currentMeta = System.getProperty("meta");
+		if (StringUtils.isNotBlank(currentMeta)) {
+			meta.add("+basic");
+			for (String s : currentMeta.split(",")) {
+				meta.add("+" + s);
+			}
+		}
+		meta.add("-skip");
+		meta.add("-wip");
+		Embedder embedder = configuredEmbedder();
+		embedder.useMetaFilters(meta);
+		EnhancePrintStreamEmbedderMonitor odMonitor = new EnhancePrintStreamEmbedderMonitor();
+		embedder.useEmbedderMonitor(odMonitor);
+		try {
+			embedder.runStoriesAsPaths(storyPaths());
+			if (odMonitor.getFailedPaths().size() > 0) {
+				System.out.println("***************************************Begin to re-run the failed stories****************************************");
+				StringBuffer sb = new StringBuffer();
+				for (String s : odMonitor.getFailedPaths()) {
+					sb = sb.append(s).append(", ");
+				}
+				System.out.print(sb.toString());
+				embedder.runStoriesAsPaths(odMonitor.getFailedPaths());
+			}
+		} finally {
+			embedder.generateCrossReference();
 		}
 	}
-
-	private Configuration config = null;
 
 	@Override
 	public Configuration configuration() {

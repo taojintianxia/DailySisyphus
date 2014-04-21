@@ -6,13 +6,10 @@ import static org.jbehave.core.io.CodeLocations.codeLocationFromClass;
 import java.util.List;
 
 import jbehave.base.BaseRunner;
-import jbehave.base.model.Site;
 
 import org.jbehave.core.embedder.executors.FixedThreadExecutors;
 import org.jbehave.core.io.StoryFinder;
 
-@jbehave.base.annotation.Locale(language = "en", country = "US")
-@jbehave.base.annotation.Brand(Site.BSD)
 public class TestRunner extends BaseRunner {
 
 	public TestRunner() {
@@ -23,7 +20,7 @@ public class TestRunner extends BaseRunner {
 	protected List<String> storyPaths() {
 		// Specify story paths as URLs
 		String codeLocation = codeLocationFromClass(this.getClass()).getFile();
-		return new StoryFinder().findPaths(codeLocation, asList("**/stories/**/searchTextDemo.story"), asList(""));
+		return new StoryFinder().findPaths(codeLocation, asList("**/stories/**/baidu_search.story"), asList(""));
 	}
 
 	@Override

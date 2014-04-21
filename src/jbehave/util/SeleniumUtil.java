@@ -1,4 +1,4 @@
-package jbehave.base;
+package jbehave.util;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
@@ -7,16 +7,16 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * 
- * 
+ *
+ *
  * @author Kane.Sun
- * @version Feb 19, 2014 10:50:50 AM
+ * @version Apr 21, 2014 10:42:52 AM
  * 
  */
 
 public class SeleniumUtil {
 
-	private final static String configFile = "src/jbehave/resources/config.properties";
+	public static final String configFile = "config.properties";
 
 	private static Properties loadProperties() {
 		InputStream in = null;
@@ -38,4 +38,12 @@ public class SeleniumUtil {
 	public static String getBrowser() {
 		return loadProperties().get("Browser").toString();
 	}
+
+	private static String getPropertiesFileValue(String key) throws IOException {
+		InputStream in = new BufferedInputStream(new FileInputStream(configFile));
+		Properties properties = new Properties();
+		properties.load(in);
+		return properties.getProperty(key);
+	}
+
 }

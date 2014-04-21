@@ -13,7 +13,12 @@ import jbehave.base.BasePage;
 public class BaiduPage extends BasePage {
 
 	public void openHomePage() {
-		openUrl("www.baidu.com");
+		openUrl("/");
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

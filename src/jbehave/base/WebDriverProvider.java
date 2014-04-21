@@ -17,7 +17,6 @@ import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverBackedSelenium;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -29,6 +28,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.thoughtworks.selenium.DefaultSelenium;
+import com.thoughtworks.selenium.webdriven.WebDriverBackedSelenium;
 
 final public class WebDriverProvider extends DelegatingWebDriverProvider {
 
