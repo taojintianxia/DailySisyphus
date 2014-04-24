@@ -4,8 +4,8 @@
 	<groupId>DailySisyphus</groupId>
 	<artifactId>DailySisyphus</artifactId>
 	<version>0.1.1-SNAPSHOT</version>
-	
-		<properties>
+
+	<properties>
 		<jbehave.core.version>3.8</jbehave.core.version>
 		<jbehave.web.version>3.5.5</jbehave.web.version>
 		<selenium.version>2.40.0</selenium.version>
@@ -19,7 +19,7 @@
 			<artifactId>guava</artifactId>
 			<version>16.0.1</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
