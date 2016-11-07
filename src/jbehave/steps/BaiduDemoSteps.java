@@ -1,14 +1,15 @@
 package jbehave.steps;
 
 import static org.junit.Assert.assertTrue;
-import jbehave.base.BaseStep;
-import jbehave.pages.BaiduDemoPage;
 
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
+import jbehave.base.BaseStep;
+import jbehave.pages.BaiduDemoPage;
 
 /**
  * 
@@ -21,26 +22,26 @@ import org.springframework.stereotype.Component;
 @Scope("prototype")
 public class BaiduDemoSteps extends BaseStep {
 
-	private BaiduDemoPage baiduPage;
+    private BaiduDemoPage baiduPage;
 
-	@Given("I access Baidu site")
-	public void iAccessBaiduSite() {
-		baiduPage = new BaiduDemoPage();
-		baiduPage.openHomePage();
-	}
+    @Given("I access Baidu site")
+    public void iAccessBaiduSite() {
+        baiduPage = new BaiduDemoPage();
+        baiduPage.openHomePage();
+    }
 
-	@When("I search text on Baidu")
-	public void iSearchTextOnBaidu() {
-		baiduPage.searchText();
-	}
+    @When("I search text on Baidu")
+    public void iSearchTextOnBaidu() {
+        baiduPage.searchText();
+    }
 
-	@Then("I should see the search result on baidu")
-	public void iShouldSeeTheSearchResultOnBaidu() {
-		assertTrue(baiduPage.isSearchResultAppear());
-	}
+    @Then("I should see the search result on baidu")
+    public void iShouldSeeTheSearchResultOnBaidu() {
+        assertTrue(baiduPage.isSearchResultAppear());
+    }
 
-	@When("I nevigate a result link on baidu randomly")
-	public void iNevigateAResultLinkOnBaiduRandomly() {
-		baiduPage.nevigateLinkRandomly();
-	}
+    @When("I navigate a result link on baidu randomly")
+    public void iNevigateAResultLinkOnBaiduRandomly() {
+        baiduPage.nevigateLinkRandomly();
+    }
 }
