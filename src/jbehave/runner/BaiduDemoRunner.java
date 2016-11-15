@@ -6,10 +6,13 @@ import static org.jbehave.core.io.CodeLocations.codeLocationFromClass;
 import java.util.List;
 
 import jbehave.base.BaseRunner;
+import jbehave.base.annotation.Browsers;
+import jbehave.base.model.Browser;
 
 import org.jbehave.core.embedder.executors.FixedThreadExecutors;
 import org.jbehave.core.io.StoryFinder;
 
+@Browsers(Browser.CHROME)
 public class BaiduDemoRunner extends BaseRunner {
 
 	public BaiduDemoRunner() {

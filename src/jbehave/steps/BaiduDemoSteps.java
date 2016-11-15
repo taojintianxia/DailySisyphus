@@ -24,7 +24,7 @@ public class BaiduDemoSteps extends BaseStep {
 
     private BaiduDemoPage baiduPage;
 
-    @Given("I access Baidu site")
+    @Given("我访问了百度的首页")
     public void iAccessBaiduSite() {
         baiduPage = new BaiduDemoPage();
         baiduPage.openHomePage();
