@@ -30,18 +30,24 @@ public class BaiduDemoSteps extends BaseStep {
         baiduPage.openHomePage();
     }
 
-    @When("I search text on Baidu")
+    @When("我在百度首页搜索了个关键字")
     public void iSearchTextOnBaidu() {
         baiduPage.searchText();
     }
 
-    @Then("I should see the search result on baidu")
-    public void iShouldSeeTheSearchResultOnBaidu() {
+    @Then("我应该看到搜索结果并仔细看了一会")
+    public void iShouldSeeTheSearchResultOnBaidu() throws InterruptedException {
         assertTrue(baiduPage.isSearchResultAppear());
+        Thread.sleep(2000);
     }
 
-    @When("I navigate a result link on baidu randomly")
+    @When("我胡乱点击了一个链接")
     public void iNevigateAResultLinkOnBaiduRandomly() {
+        baiduPage.nevigateLinkRandomly();
+    }
+
+    @Then("我看到了链接的具体内容")
+    public void iSeeTheContentOfTheLink() {
         baiduPage.nevigateLinkRandomly();
     }
 }
