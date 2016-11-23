@@ -11,20 +11,20 @@ import org.jbehave.core.reporters.TemplateableViewGenerator;
 
 import freemarker.template.Configuration;
 
-public class FreemarkerODViewGenerator extends TemplateableViewGenerator {
+public class FreemarkerViewGenerator extends TemplateableViewGenerator {
 
-	private static final FreemarkerODViewGenerator INSTANCE = new FreemarkerODViewGenerator();
+	private static final FreemarkerViewGenerator INSTANCE = new FreemarkerViewGenerator();
 
-	public static FreemarkerODViewGenerator getInstance() {
+	public static FreemarkerViewGenerator getInstance() {
 		return INSTANCE;
 	}
 
-	private FreemarkerODViewGenerator() {
+	private FreemarkerViewGenerator() {
 		this(new UnderscoredToCapitalized());
 	}
 
-	private FreemarkerODViewGenerator(StoryNameResolver nameResolver) {
-		super(nameResolver, new FreemarkerProcessor(FreemarkerODViewGenerator.class) {
+	private FreemarkerViewGenerator(StoryNameResolver nameResolver) {
+		super(nameResolver, new FreemarkerProcessor(FreemarkerViewGenerator.class) {
 
 			private Configuration configuration;
 

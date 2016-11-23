@@ -31,7 +31,7 @@ import org.jbehave.web.selenium.WebDriverHtmlOutput;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import jbehave.base.annotation.Browsers;
-import jbehave.base.ftl.FreemarkerODViewGenerator;
+import jbehave.base.ftl.FreemarkerViewGenerator;
 import jbehave.base.model.LifeCycleSteps;
 
 public abstract class BaseRunner extends JUnitStories {
@@ -124,7 +124,7 @@ public abstract class BaseRunner extends JUnitStories {
                             .withFailureTrace(true).withFailureTraceCompression(true)
                             .withCrossReference(new CrossReference()))
                     .usePathCalculator(new RelativePathCalculator())
-                    .useViewGenerator(FreemarkerODViewGenerator.getInstance());
+                    .useViewGenerator(FreemarkerViewGenerator.getInstance());
             return config;
         } else {
             return config;
