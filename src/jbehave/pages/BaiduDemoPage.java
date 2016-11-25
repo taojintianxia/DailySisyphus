@@ -7,11 +7,9 @@ import org.openqa.selenium.WebElement;
 
 import jbehave.base.BasePage;
 
+
 /**
- * 
- * 
- * @author Kane.Sun
- * @version Apr 18, 2014 3:58:50 PM
+ * @author nianjun
  * 
  */
 

@@ -5,14 +5,17 @@ import static junit.framework.Assert.assertTrue;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import jbehave.base.BaseStep;
 import jbehave.pages.McDemoPage;
 
+/**
+ * @author nianjun
+ * 
+ */
+
 @Component
-@Scope("prototype")
 public class McDemoSteps extends BaseStep {
 
     private McDemoPage mcDemoPage;

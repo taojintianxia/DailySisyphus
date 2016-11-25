@@ -30,11 +30,17 @@ import com.thoughtworks.selenium.webdriven.WebDriverBackedSelenium;
 
 import jbehave.base.model.Browser;
 
+/**
+ * 
+ * @author nianjun
+ *
+ */
+
 final public class WebDriverProvider extends DelegatingWebDriverProvider {
 
     private static final Log logger = LogFactory.getLog(WebDriverProvider.class);
 
-    // --singleton
+    // singleton
     private WebDriverProvider() {}
 
     private final static WebDriverProvider INSTANCE = new WebDriverProvider();
@@ -85,7 +91,7 @@ final public class WebDriverProvider extends DelegatingWebDriverProvider {
                     .implicitlyWait(20, TimeUnit.SECONDS);
             webDriver.manage().window().maximize();
         } catch (Exception e) {
-            LOGGER.error("ODWebDriverProvider initialize()", e); //$NON-NLS-1$
+            LOGGER.error("WebDriverProvider initialize()", e); //$NON-NLS-1$
             throw new RuntimeException(e);
         }
     }

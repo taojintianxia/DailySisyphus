@@ -8,11 +8,16 @@ import java.lang.annotation.Target;
 
 import jbehave.base.model.Browser;
 
+/**
+ * @author nianjun
+ * 
+ */
+
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 @Inherited
 public @interface Browsers {
 
-	Browser[] value();
+    Browser[] value();
 
 }

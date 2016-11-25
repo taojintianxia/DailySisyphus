@@ -8,10 +8,15 @@ import java.lang.annotation.Target;
 
 import jbehave.base.model.TestConstants;
 
+/**
+ * @author nianjun
+ * 
+ */
+
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 @Inherited
 public @interface BrandKey {
 
-	String value() default TestConstants.OD_CONFIG_BRAND;
+	String value() default TestConstants.CONFIG_BRAND;
 }

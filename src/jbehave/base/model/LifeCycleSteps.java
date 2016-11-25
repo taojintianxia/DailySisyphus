@@ -1,14 +1,19 @@
 package jbehave.base.model;
 
-import jbehave.base.BaseStep;
-import jbehave.base.SpringStepsFactory;
-import jbehave.base.WebDriverProvider;
-
 import org.jbehave.core.annotations.AfterStories;
 import org.jbehave.core.annotations.AfterStory;
 import org.jbehave.core.annotations.BeforeStory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
+import jbehave.base.BaseStep;
+import jbehave.base.SpringStepsFactory;
+import jbehave.base.WebDriverProvider;
+
+/**
+ * @author nianjun
+ * 
+ */
 
 @Component
 @Scope("prototype")

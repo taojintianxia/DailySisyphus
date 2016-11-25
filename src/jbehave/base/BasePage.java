@@ -24,6 +24,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.google.common.base.Function;
 import com.thoughtworks.selenium.DefaultSelenium;
 
+/**
+ * 
+ * @author nianjun
+ *
+ */
+
 public abstract class BasePage {
 
 	protected final WebDriverProvider driverProvider = WebDriverProvider.getInstance();
@@ -282,7 +288,7 @@ public abstract class BasePage {
 
 	protected List<String> getValueOfOptionsInSelectList(WebElement element) {
 		if (element != null) {
-			List<String> valueList = new ArrayList<String>();
+			List<String> valueList = new ArrayList<>();
 			List<WebElement> optionList = new Select(element).getOptions();
 			for (int i = 0; i < optionList.size(); i++) {
 				valueList.add(this.getValue(optionList.get(i)));
@@ -295,7 +301,7 @@ public abstract class BasePage {
 
 	protected List<String> getTextOfOptionsInSelectList(WebElement element) {
 		if (element != null) {
-			List<String> textList = new ArrayList<String>();
+			List<String> textList = new ArrayList<>();
 			List<WebElement> optionList = new Select(element).getOptions();
 			for (int i = 0; i < optionList.size(); i++) {
 				textList.add(this.getText(optionList.get(i)));

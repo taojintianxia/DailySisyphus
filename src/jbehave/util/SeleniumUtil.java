@@ -7,10 +7,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * 
- * 
- * @author Kane.Sun
- * @version Apr 21, 2014 10:42:52 AM
+ * @author nianjun
  * 
  */
 

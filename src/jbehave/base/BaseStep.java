@@ -5,16 +5,22 @@ import java.util.HashMap;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+/**
+ * 
+ * @author nianjun
+ *
+ */
+
 public abstract class BaseStep {
 
 	protected final Log logger = LogFactory.getLog(this.getClass());
 
-	private static ThreadLocal<HashMap<String, Object>> storyContext = new ThreadLocal<HashMap<String, Object>>();
+	private static ThreadLocal<HashMap<String, Object>> storyContext = new ThreadLocal<>();
 
 	protected void setParameter(String name, Object value) {
 		HashMap<String, Object> context = storyContext.get();
 		if (context == null) {
-			context = new HashMap<String, Object>();
+			context = new HashMap<>();
 			storyContext.set(context);
 		}
 		context.put(name, value);

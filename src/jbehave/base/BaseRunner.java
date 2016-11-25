@@ -34,6 +34,12 @@ import jbehave.base.annotation.Browsers;
 import jbehave.base.ftl.FreemarkerViewGenerator;
 import jbehave.base.model.LifeCycleSteps;
 
+/**
+ * 
+ * @author nianjun
+ *
+ */
+
 public abstract class BaseRunner extends JUnitStories {
 
     protected abstract String[] getStepsBasePackages();
@@ -104,7 +110,7 @@ public abstract class BaseRunner extends JUnitStories {
             Class<? extends Embeddable> embeddableClass = this.getClass();
             Properties viewResources = new Properties();
             viewResources.put("decorateNonHtml", "true");
-            viewResources.put("reports", "ftl/od-jbehave-reports.ftl");
+            viewResources.put("reports", "ftl/jbehave-reports.ftl");
             ParameterConverters parameterConverters = new ParameterConverters();
             ExamplesTableFactory examplesTableFactory = new ExamplesTableFactory(new LocalizedKeywords(),
                     new LoadFromClasspath(embeddableClass), parameterConverters);

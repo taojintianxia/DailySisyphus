@@ -5,21 +5,17 @@ import static org.junit.Assert.assertTrue;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import jbehave.base.BaseStep;
 import jbehave.pages.BaiduDemoPage;
 
 /**
- * 
- * 
- * @author Kane.Sun
- * @version Apr 18, 2014 3:50:08 PM
+ * @author nianjun
  * 
  */
+
 @Component
-@Scope("prototype")
 public class BaiduDemoSteps extends BaseStep {
 
     private BaiduDemoPage baiduPage;

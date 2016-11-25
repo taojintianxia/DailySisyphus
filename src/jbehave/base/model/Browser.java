@@ -1,5 +1,10 @@
 package jbehave.base.model;
 
+/**
+ * @author nianjun
+ * 
+ */
+
 public enum Browser {
 
 	FIREFOX(1, "firefox", ""),

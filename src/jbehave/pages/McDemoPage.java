@@ -6,17 +6,11 @@ import org.openqa.selenium.WebElement;
 import jbehave.base.BasePage;
 
 /**
- * 
- * 
- * @author Kane.Sun
- * @version Apr 18, 2014 3:58:50 PM
+ * @author nianjun
  * 
  */
 
 public class McDemoPage extends BasePage {
-
-    private WebElement searchField;
-    private WebElement searchButton;
 
     public void openHomePage() {
         openUrl("/");
